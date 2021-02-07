@@ -14,7 +14,16 @@ export function ReposPage() {
         </thead>
         <tbody>
           <tr>
-            <td data-testid="table-row-repo-name-1">reactor</td>
+            <td>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                data-testid="table-row-repo-link-1"
+                href="https://github.com"
+              >
+                reactor
+              </a>
+            </td>
             <td data-testid="table-row-repo-stars-1">10</td>
             <td data-testid="table-row-repo-forks-1">20</td>
           </tr>

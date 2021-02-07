@@ -16,7 +16,15 @@ describe("ReposPage", () => {
     const repoNameTableHeading = screen.getByRole("columnheader", {
       name: "Name",
     });
+    const repoStarsTableHeading = screen.getByRole("columnheader", {
+      name: "Stars",
+    });
+    const repoForksTableHeading = screen.getByRole("columnheader", {
+      name: "Forks",
+    });
 
     expect(repoNameTableHeading).toBeInTheDocument();
+    expect(repoStarsTableHeading).toBeInTheDocument();
+    expect(repoForksTableHeading).toBeInTheDocument();
   });
 });

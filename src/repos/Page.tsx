@@ -8,6 +8,8 @@ export function ReposPage() {
         <thead>
           <tr>
             <th>Name</th>
+            <th>Stars</th>
+            <th>Forks</th>
           </tr>
         </thead>
         <tbody></tbody>

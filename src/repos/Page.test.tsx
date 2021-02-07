@@ -27,4 +27,16 @@ describe("ReposPage", () => {
     expect(repoStarsTableHeading).toBeInTheDocument();
     expect(repoForksTableHeading).toBeInTheDocument();
   });
+
+  test("displays repo details in table", () => {
+    render(<ReposPage />);
+
+    const repoNameRowData = screen.getByTestId("table-row-repo-name-1");
+    const repoStarsRowData = screen.getByTestId("table-row-repo-stars-1");
+    const repoForksRowData = screen.getByTestId("table-row-repo-forks-1");
+
+    expect(repoNameRowData).toHaveTextContent("reactor");
+    expect(repoStarsRowData).toHaveTextContent("10");
+    expect(repoForksRowData).toHaveTextContent("20");
+  });
 });

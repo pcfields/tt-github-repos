@@ -12,7 +12,13 @@ export function ReposPage() {
             <th>Forks</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <tr>
+            <td data-testid="table-row-repo-name-1">reactor</td>
+            <td data-testid="table-row-repo-stars-1">10</td>
+            <td data-testid="table-row-repo-forks-1">20</td>
+          </tr>
+        </tbody>
       </table>
     </article>
   );

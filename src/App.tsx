@@ -1,10 +1,12 @@
 import React from "react";
-import { ReposPage } from "./repos/Page";
+import { Repo, ReposPage } from "./repos/Page";
 
 function App() {
+  const repos: Repo[] = [];
+
   return (
     <div className="App">
-      <ReposPage />
+      <ReposPage repos={repos} />
     </div>
   );
 }

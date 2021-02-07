@@ -4,14 +4,14 @@ import { ReposPage } from "./Page";
 
 describe("ReposPage", () => {
   test("displays page title", () => {
-    render(<ReposPage />);
+    render(<ReposPage repos={[]} />);
 
     const pageTitle = screen.getByRole("heading", { level: 1 });
     expect(pageTitle).toBeInTheDocument();
   });
 
   test("displays table with headings", () => {
-    render(<ReposPage />);
+    render(<ReposPage repos={[]} />);
 
     const repoNameTableHeading = screen.getByRole("columnheader", {
       name: "Name",
@@ -29,15 +29,24 @@ describe("ReposPage", () => {
   });
 
   test("displays repo details in table", () => {
-    render(<ReposPage />);
+    const THE_REPO = {
+      id: "abc123",
+      name: "reactor",
+      url: "https://github.com",
+      stars: 10,
+      forks: 20,
+    };
+    const REPOS = [THE_REPO];
+
+    render(<ReposPage repos={REPOS} />);
 
     const repoNameLinkRowData = screen.getByTestId("table-row-repo-link-1");
     const repoStarsRowData = screen.getByTestId("table-row-repo-stars-1");
     const repoForksRowData = screen.getByTestId("table-row-repo-forks-1");
 
-    expect(repoNameLinkRowData).toHaveTextContent("reactor");
-    expect(repoNameLinkRowData).toHaveAttribute("href", "https://github.com");
-    expect(repoStarsRowData).toHaveTextContent("10");
-    expect(repoForksRowData).toHaveTextContent("20");
+    expect(repoNameLinkRowData).toHaveTextContent(THE_REPO.name);
+    expect(repoNameLinkRowData).toHaveAttribute("href", THE_REPO.url);
+    expect(repoStarsRowData).toHaveTextContent(`${THE_REPO.stars}`);
+    expect(repoForksRowData).toHaveTextContent(`${THE_REPO.forks}`);
   });
 });
